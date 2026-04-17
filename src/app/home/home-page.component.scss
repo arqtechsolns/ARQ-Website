@@ -1,0 +1,265 @@
+.container {
+  width: min(1440px, calc(100% - 3rem));
+  margin: 0 auto;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.hero {
+  padding-top: 13rem;
+  padding-bottom: 5rem;
+  background:
+    linear-gradient(180deg, rgba(17, 17, 17, 0.08), rgba(17, 17, 17, 0.5)),
+    url('/assets/hero-banner-generated.png') center / cover no-repeat;
+}
+
+.hero-content {
+  min-height: 24rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 2rem;
+}
+
+.eyebrow,
+.icon-label,
+.project-label {
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  color: #f8f8f8;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: Helvetica, Verdana, Arial, sans-serif;
+  color: #f8f8f8;
+}
+
+h1 {
+  max-width: 30ch;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 0.94;
+  letter-spacing: -0.06em;
+  align-self: center;
+  text-align: center;
+  opacity: 0.65;
+}
+
+.hero-title {
+  animation: heroRiseIn 1.25s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s both;
+  transform-origin: center bottom;
+}
+
+@keyframes heroRiseIn {
+  0% {
+    opacity: 0;
+    transform: translateY(7rem) scale(0.82);
+    filter: blur(10px);
+  }
+
+  55% {
+    opacity: 0.48;
+  }
+
+  100% {
+    opacity: 0.65;
+    transform: translateY(4rem) scale(1);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-title {
+    animation: none;
+    transform: translateY(4rem);
+  }
+}
+
+h2 {
+  font-size: clamp(2rem, 6vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+h3 {
+  font-size: clamp(1.4rem, 2.7vw, 2rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.intro {
+  padding-top: 3rem;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.intro-copy {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.icon-label,
+.project-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.icon-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 0.9rem;
+  background: rgba(130, 255, 31, 0.12);
+  color: #82ff1f;
+  font-family: Helvetica, Verdana, Arial, sans-serif;
+  font-weight: 700;
+}
+
+.icon-box mat-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  font-size: 1.35rem;
+}
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: fit-content;
+  padding: 0.9rem 1.5rem;
+  border-radius: 999px;
+  border: 0.5px solid #4f4f4f;
+  background: #82ff1f;
+  color: #2f2f2f;
+  font-family: Helvetica, Verdana, Arial, sans-serif;
+  font-size: 1rem;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(130, 255, 31, 0.18);
+  background: #c9ff90;
+}
+
+.button-arrow,
+.project-arrow {
+  color: #82ff1f;
+  font-size: 1.1em;
+}
+
+.button-arrow {
+  color: #111111;
+  line-height: 1;
+  font-size: 1.35rem;
+  transform: scaleX(-1);
+}
+
+.project-arrow {
+  line-height: 1;
+  font-size: 1.35rem;
+  transform: scaleX(-1);
+}
+
+.service-grid,
+.project-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.service-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.service-card {
+  padding: 0.35rem 0 0.5rem;
+}
+
+.service-card p {
+  margin: 0;
+  line-height: 1.8;
+  color: #f8f8f8;
+  opacity: 0.92;
+}
+
+.projects {
+  padding-top: 0rem;
+}
+
+
+.projects-stack {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.project-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.project-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.project-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.5;
+  border-radius: 1.4rem;
+  object-fit: cover;
+}
+
+@media (max-width: 960px) {
+
+  .intro-grid,
+  .service-grid,
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    min-height: 28rem;
+  }
+
+  .projects {
+    padding-top: 0rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 3.75rem 0;
+  }
+
+  .hero {
+    padding-top: 3rem;
+  }
+
+  .primary-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .projects {
+    padding-top: 0rem;
+  }
+}

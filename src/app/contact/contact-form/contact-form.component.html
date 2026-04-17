@@ -1,0 +1,54 @@
+@if (submitSuccess) {
+  <div class="form-success">
+    <img class="form-success-logo" src="assets/ARQ-CLEAR.png" alt="ARQ Tech Solutions" />
+    <h3>Thank you for your submission.</h3>
+    <p>We&apos;ll review your request and reach out soon.</p>
+  </div>
+} @else {
+  <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <label class="form-field">
+      <span>Name <span class="required-marker">*</span></span>
+      <input type="text" formControlName="name" autocomplete="name" required />
+    </label>
+
+    <label class="form-field">
+      <span>Email Address <span class="required-marker">*</span></span>
+      <input type="email" formControlName="email" autocomplete="email" required />
+    </label>
+
+    <label class="form-field">
+      <span>Phone Number</span>
+      <input
+        type="tel"
+        formControlName="phone"
+        autocomplete="tel"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        (input)="onPhoneInput($event)"
+      />
+    </label>
+
+    <label class="form-field">
+      <span>Company Name</span>
+      <input type="text" formControlName="company" autocomplete="organization" />
+    </label>
+
+    <label class="form-field form-field--full">
+      <span>Request Details <span class="required-marker">*</span></span>
+      <textarea formControlName="details" rows="6" required></textarea>
+    </label>
+
+    <button class="primary-button" type="submit" [disabled]="submitting">
+      <span class="button-arrow material-symbols-outlined">keyboard_return</span>
+      <span>{{ submitting ? 'Sending...' : 'Submit' }}</span>
+    </button>
+
+    @if (submitted && contactForm.invalid) {
+      <p class="form-message">Please fill out the required fields before submitting.</p>
+    }
+
+    @if (submitError) {
+      <p class="form-message form-message--error">{{ submitError }}</p>
+    }
+  </form>
+}

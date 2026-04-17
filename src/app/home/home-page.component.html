@@ -1,0 +1,53 @@
+<section class="hero section">
+  <div class="container hero-content">
+    <p class="eyebrow"></p>
+    <h1 class="hero-title">Technology Solutions for Everyone</h1>
+  </div>
+</section>
+
+<section class="intro section">
+  <div class="container intro-grid">
+    <div class="intro-copy">
+      <div class="icon-label">
+        <span class="icon-box">
+          <mat-icon fontSet="material-symbols-outlined">build</mat-icon>
+        </span>
+        <span>creating solutions</span>
+      </div>
+
+      <h2>Our Customers are our Priority</h2>
+
+      <a class="primary-button" routerLink="/contact">
+        <span class="button-arrow material-symbols-outlined">keyboard_return</span>
+        <span>Contact Us</span>
+      </a>
+    </div>
+
+    <div class="service-grid">
+      @for (service of services; track service.title) {
+      <article class="service-card">
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
+      </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="projects section">
+  <div class="container projects-stack">
+    <h2>No Project Too Big or Small for Us...</h2>
+
+    <div class="project-grid">
+      @for (project of projectShowcase; track project.title) {
+      <article class="project-card">
+        <div class="project-label">
+          <span class="project-arrow material-symbols-outlined">keyboard_return</span>
+          <span>{{ project.title }}</span>
+        </div>
+        <img [src]="project.image" [alt]="project.alt" />
+      </article>
+      }
+    </div>
+  </div>
+</section>

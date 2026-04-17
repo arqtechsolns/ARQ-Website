@@ -1,0 +1,35 @@
+<header class="site-header">
+  <a class="brand" routerLink="/" [attr.aria-label]="siteBrand.fullName + ' home'">
+    <img class="brand-logo" src="assets/Logo_Clear.png" [alt]="siteBrand.fullName" />
+    <span class="brand-text">
+      <span>Tech</span>
+      <span>Solutions</span>
+    </span>
+  </a>
+
+  <button
+    class="menu-toggle"
+    type="button"
+    [attr.aria-expanded]="menuOpen"
+    aria-controls="primary-nav"
+    aria-label="Toggle navigation"
+    (click)="toggleMenu()"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="site-nav" id="primary-nav" aria-label="Primary" [class.is-open]="menuOpen">
+    @for (link of navLinks; track link.label) {
+      <a
+        [routerLink]="link.path"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: link.exact }"
+        (click)="closeMenu()"
+      >
+        {{ link.label }}
+      </a>
+    }
+  </nav>
+</header>
